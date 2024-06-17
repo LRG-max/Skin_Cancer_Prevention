@@ -1,3 +1,16 @@
+#########
+### DOCKER LOCAL
+#########
+
+build_container_local:
+	docker build --tag=$$IMAGE:dev .
+
+run_container_local:
+	docker run -it -e PORT=8000 -p 8000:8000 $$IMAGE:dev
+
+
+
+
 # ----------------------------------
 #          INSTALL & TEST
 # ----------------------------------
