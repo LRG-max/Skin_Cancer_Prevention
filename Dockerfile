@@ -13,4 +13,4 @@ RUN pip install -e .
 # CMD uvicorn skin_cancer_prevention.api_file:app --reload --host 0.0.0.0
 
 #Run container deployed
-CMD uvicorn Skin_Cancer_Prevention.api_file:app --reload --host 0.0.0.0 --port $PORT
+CMD uvicorn skin_cancer_prevention.api_file:app --reload --host 0.0.0.0 --port $PORT
