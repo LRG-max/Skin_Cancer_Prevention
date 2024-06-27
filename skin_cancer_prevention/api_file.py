@@ -1,24 +1,31 @@
-import pickle
-from fastapi import FastAPI
 
-from tensorflow.keras.preprocessing.image import img_to_array
+from fastapi import FastAPI, File, UploadFile
 
+from fastapi.responses import JSONResponse
+
+from scripts.utils import read_image,format_image,predict_risk
 app = FastAPI()
+
 
 @app.get('/')
 def root():
+
     return {'hello': 'world'}
 
-@app.get('/predict')
-def predict(img):
+@app.post("/predict/")
+async def predict(file: UploadFile = File(...)):
+    # Ensure the uploaded file is a JPEG image
+    if file.content_type != "image/jpeg":
+        return JSONResponse(status_code=400, content={"message": "Only JPEG images are supported"})
 
-    with open('../model/**.keras', 'rb') as file:
-        model = pickle.load(file)
-    img = img_to_array(img)
+    # Read the image file
+    contents = await file.read()
 
-    img = img.reshape((-1, 224, 224, 3))
-    prediction = model.predict(img)[0][0]
-    # prediction = model.predict()
-    # to do  convert prediction to skin cancer pred "cancer or no cancer risqk"
+    image = read_image(contents)
 
-    return {'prediction': str(prediction)}
+    image = format_image(image)
+
+    prediction = predict_risk(image,"skin_cancer_prevention/model.keras")
+
+    # Return the prediction as a JSON response
+    return JSONResponse(content={"prediction": float(prediction)})
