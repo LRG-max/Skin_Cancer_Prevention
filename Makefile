@@ -8,6 +8,10 @@ build_container_local:
 run_container_local:
 	docker run -it -e PORT=8000 -p 8000:8000 $$IMAGE:dev
 
+	# docker run -it -e PORT=8000 -p 8000:8000 $$IMAGE:dev /bin/bash
+
+run_api:
+	uvicorn skin_cancer_prevention.api_file:app --reload
 
 
 #########
