@@ -15,8 +15,8 @@ def root():
 @app.post("/predict/")
 async def predict(file: UploadFile = File(...)):
     # Ensure the uploaded file is a JPEG image
-    if file.content_type != "image/jpeg":
-        return JSONResponse(status_code=400, content={"message": "Only JPEG images are supported"})
+#    if file.content_type != "image/jpeg":
+#        return JSONResponse(status_code=400, content={"message": "Only JPEG images are supported"})
 
     # Read the image file
     contents = await file.read()
