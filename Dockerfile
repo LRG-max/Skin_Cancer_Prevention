@@ -11,7 +11,7 @@ RUN pip install -r requirements.txt
 RUN pip install -e .
 
 #Run container locally
-CMD uvicorn skin_cancer_prevention.api_file:app --reload --host 0.0.0.0
+# CMD uvicorn skin_cancer_prevention.api_file:app --reload --host 0.0.0.0
 
 #Run container deployed
-# CMD uvicorn skin_cancer_prevention.api_file:app --reload --host 0.0.0.0 --port $PORT
+CMD uvicorn skin_cancer_prevention.api_file:app --reload --host 0.0.0.0 --port $PORT
