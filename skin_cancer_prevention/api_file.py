@@ -25,7 +25,7 @@ async def predict(file: UploadFile = File(...)):
 
     image = format_image(image)
 
-    prediction = predict_risk(image,"skin_cancer_prevention/model.keras")
+    prediction = predict_risk(image,"skin_cancer_prevention/modelvgg16.h5")#model.keras
 
     # Return the prediction as a JSON response
     return JSONResponse(content={"prediction": float(prediction)})
