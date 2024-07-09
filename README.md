@@ -10,7 +10,7 @@ The project leverages image processing and machine learning techniques to predic
 
 ### Data Source
 
-- [Specify your data sources here]
+- [Kaggle Data Set provided by DREDGEN743](https://www.kaggle.com/datasets/dredgen743/skin-cancer?select=Metadata.csv)
 
 ### Type of Analysis
 
@@ -41,7 +41,7 @@ To set up the project, follow these steps:
    - Check for `Skin_Cancer_Prevention` in `github.com/{group}`. If your project is not set up, please add it.
    - Create a new project on `github.com/{group}/Skin_Cancer_Prevention` and populate it:
      ```bash
-     git remote add origin git@github.com:{group}/Skin_Cancer_Prevention.git
+     git remote add origin git@github.com:LRG-max/Skin_Cancer_Prevention.git
      git push -u origin master
      git push -u origin --tags
      ```
@@ -60,7 +60,7 @@ Skin_Cancer_Prevention-run
 ## Installation
 
 1. **Visit the Project Repository:**
-   Go to `https://github.com/{group}/Skin_Cancer_Prevention` to see the project, manage issues, and set up your SSH public key.
+   Go to `https://github.com/LRG-max/Skin_Cancer_Prevention` to see the project, manage issues, and set up your SSH public key.
 
 2. **Create and activate a Python 3 virtual environment:**
 
@@ -72,7 +72,7 @@ Skin_Cancer_Prevention-run
 3. **Clone the project and install dependencies:**
 
    ```bash
-   git clone git@github.com:{group}/Skin_Cancer_Prevention.git
+   git clone git@github.com:LRG-max/Skin_Cancer_Prevention.git
    cd Skin_Cancer_Prevention
    pip install -r requirements.txt
    make clean install test
